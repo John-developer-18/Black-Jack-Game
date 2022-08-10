@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: goldenrod;
+}
+main{
+    background-color: darkgreen;
+    font-family: 'Trebuchet MS';
+    padding: 20px;
+    padding-bottom: 35px;
+    text-align: center;
+    width: 300px;
+    margin: 10% auto;
+    font-weight: bold;
+}
+main h1{
+    color: goldenrod;
+    border: 2px solid goldenrod;
+    padding: 10px 0;
+    
+}
+main p{
+    margin-top: 20px;
+    color: white;
+}
+main button{
+    color: #016f32;
+    background-color: goldenrod;
+    width: 150px;
+    border: none;
+    padding: 10px;
+    font-weight: bolder;
+    margin-top: 15px;
+    border-radius: 2px;
+}
