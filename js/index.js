@@ -1,6 +1,5 @@
 let firstCard=Math.ceil(16*Math.random());
 let secondCard=Math.ceil(16*Math.random());
-let freshCard=Math.ceil(16*Math.random());
 let cards=[firstCard,secondCard];
 let sum = firstCard+secondCard;
 let hasBlackJack = false;
@@ -12,16 +11,14 @@ function startGame(){
     renderGame();
 }
 function renderGame(){
-    
    
-    
-    cardsEl.textContent="Cards:"+" "+cards[i];
+    cardsEl.textContent="Cards:";
     
 
-    // for (let i=0; i>(cards.length-1); i++){
-    //     console.log(cards[i]);
-
-    // }
+    for (let i=0; i<(cards.length); i++){
+         cardsEl.textContent+=cards[i]+" ";
+     }
+    
     sumEl.textContent="Sum:"+" "+sum;
 
     if(sum <=20){
@@ -40,6 +37,7 @@ function renderGame(){
 }
 
 function newCard(){
+    let freshCard=Math.ceil(16*Math.random());
     console.log("new card");
     sum+=freshCard;
     cards.push(freshCard);
