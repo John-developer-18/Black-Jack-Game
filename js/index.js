@@ -1,15 +1,46 @@
-let firstCard=Math.ceil(16*Math.random());
-let secondCard=Math.ceil(16*Math.random());
-let cards=[firstCard,secondCard];
-let sum = firstCard+secondCard;
+let firstCard=randomNo();
+let secondCard=randomNo();
+let cards=[];
+let sum = 0;
 let hasBlackJack = false;
+let isAlive=false;
+let info={
+    playerName:"Per",
+    playerChips:145
+}
+
 const messageEl=document.getElementById("message-el");
 const sumEl=document.getElementById("sum-el");
 const cardsEl=document.getElementById("cards-el");
+const playerEl=document.getElementById("player-el");
+
+playerEl.textContent=info.playerName + ": $" + info.playerChips;
 
 function startGame(){
+    isAlive=true;
+    cards=[firstCard,secondCard]; 
+    sum=firstCard+secondCard;
+     
+    if(cards==[]){
     renderGame();
+    }
+ 
 }
+
+function randomNo(){
+    let randomNumber=Math.ceil(16*Math.random());
+
+    if (randomNumber>10){
+        return 10;
+    }
+    else if(randomNumber===1){
+        return 11;
+    }
+    else{
+        return randomNumber;
+    }
+}
+
 function renderGame(){
    
     cardsEl.textContent="Cards:";
@@ -30,17 +61,20 @@ function renderGame(){
     }
     else{
         message="you loose and are out of the game";
-        hasBlackJack=false;
+        isAlive=false;
     }
 
     messageEl.textContent=message;
 }
 
 function newCard(){
-    let freshCard=Math.ceil(16*Math.random());
+
+    if (isAlive===true && hasBlackJack===false){
+    let freshCard=randomNo();
     console.log("new card");
     sum+=freshCard;
     cards.push(freshCard);
 
-    startGame();
+    renderGame();
+    }
 }
